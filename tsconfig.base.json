@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022"],
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@clew/core": ["packages/core/src/index.ts"],
+      "@clew/providers": ["packages/providers/src/index.ts"],
+      "@clew/gateway": ["packages/gateway/src/index.ts"],
+      "@clew/memory": ["packages/memory/src/index.ts"],
+      "@clew/taste": ["packages/taste/src/index.ts"],
+      "@clew/agents": ["packages/agents/src/index.ts"],
+      "@clew/tools": ["packages/tools/src/index.ts"],
+      "@clew/mcp": ["packages/mcp/src/index.ts"],
+      "@clew/skills": ["packages/skills/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

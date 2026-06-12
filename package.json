@@ -1,0 +1,23 @@
+{
+  "name": "clew",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local-first AI coding workspace — your personal thread through code",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm --filter @clew/cli dev",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write ."
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^20.0.0",
+    "prettier": "^3.0.0"
+  }
+}

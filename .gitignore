@@ -1,0 +1,12 @@
+node_modules
+dist
+*.log
+.env
+.env.*
+!.env.example
+.clew/
+.DS_Store
+Thumbs.db
+install_*.txt
+*.err
+*.out

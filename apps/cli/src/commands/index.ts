@@ -11,7 +11,7 @@ import { createSessionCommand } from "./session.js";
 
 export function buildRootCommand(): Command {
   const program = new Command();
-  program.name("clew").description("Clew - Your personal thread through code").version("0.1.0");
+  program.name("clew").description("Clew \u2014 your personal thread through code").version("0.1.0");
 
   program.addCommand(createInitCommand());
   program.addCommand(createDoctorCommand());
@@ -24,11 +24,25 @@ export function buildRootCommand(): Command {
   program.addCommand(createSessionCommand());
 
   // Stubs for planned commands
-  const stubCommands = ["run", "plan", "code", "review", "fix", "test", "loop", "mcp", "skill", "bridge"];
-  for (const name of stubCommands) {
+  const stubs: [string, string][] = [
+    ["run", "Run a one-shot task using the default model [planned]"],
+    ["plan", "Generate an implementation plan without editing files [planned]"],
+    ["code", "Write code based on a plan or prompt [planned]"],
+    ["review", "Review a git diff or set of changes [planned]"],
+    ["fix", "Analyze and fix an error or test failure [planned]"],
+    ["test", "Run tests and debug failures [planned]"],
+    ["loop", "Bounded repo check \u2014 summarize state, suggest next tasks [planned]"],
+    ["mcp", "Manage MCP servers and expose Clew tools over MCP [planned]"],
+    ["skill", "List, add, and run local skills [planned]"],
+    ["bridge", "WebSocket bridge for remote approval and dashboard [planned]"],
+  ];
+  for (const [name, desc] of stubs) {
     const stub = new Command(name);
-    stub.description(`[stub] ${name} - not yet implemented`);
-    stub.action(() => console.log(`"${name}" is not implemented yet.`));
+    stub.description(desc);
+    stub.action(() => {
+      console.log(`"clew ${name}" is not yet implemented.`);
+      console.log("See: https://github.com/ClewCode/Clew");
+    });
     program.addCommand(stub);
   }
 

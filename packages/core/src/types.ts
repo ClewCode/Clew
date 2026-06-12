@@ -40,7 +40,16 @@ export interface MemoryStats {
 }
 
 export interface TasteProfile {
+  version: number;
   rules: TasteRule[];
+  likes: string[];
+  dislikes: string[];
+  codingStyle: Record<string, unknown>;
+  docStyle: {
+    direct: boolean;
+    avoidAiSlop: boolean;
+  };
+  signals: TasteSignal[];
 }
 
 export interface TasteRule {
@@ -49,6 +58,24 @@ export interface TasteRule {
   text: string;
   confidence: number;
   tags: string[];
+}
+
+export type TasteSignalType =
+  | "accept"
+  | "reject"
+  | "edit"
+  | "undo"
+  | "correction"
+  | "preferred"
+  | "disliked"
+  | "wrong";
+
+export interface TasteSignal {
+  id: string;
+  type: TasteSignalType;
+  content: string;
+  context?: string;
+  createdAt: string;
 }
 
 export interface Tool {

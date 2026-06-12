@@ -34,9 +34,8 @@ export function createTasteCommand(): Command {
         confidence: 0.5,
         tags: [],
       });
-      const saved = saveTasteProfile(store.getProfile()!);
-      if (saved) console.log("Taste rule added.");
-      else console.log("Failed to save taste rule.");
+      saveTasteProfile(store.getProfile()!);
+      console.log("Taste rule added.");
     });
 
   cmd.command("dislike")
@@ -47,6 +46,16 @@ export function createTasteCommand(): Command {
       profile.dislikes.push(pattern);
       saveTasteProfile(profile);
       console.log(`Dislike registered: "${pattern}"`);
+    });
+
+  cmd.command("like")
+    .argument("<pattern>")
+    .description("Register a positive preference")
+    .action((pattern: string) => {
+      const profile = loadTasteProfile();
+      profile.likes.push(pattern);
+      saveTasteProfile(profile);
+      console.log(`Like registered: "${pattern}"`);
     });
 
   cmd.command("inspect")
